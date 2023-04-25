@@ -235,7 +235,6 @@
         let pages = 1
         let ypages = 0
         $(document).ready(function () {
-            xrfun()
             let se = localStorage.getItem('sele')
             $('#topSele').val(se)
             let arr = localStorage.getItem('color')
@@ -251,6 +250,7 @@
                 $('#datas').val(p[0].year)
                 $('#leis').val(p[0].genre)
             }
+            xrfun()
         })
         //批量删除
         $('#plshan').click(function () {
