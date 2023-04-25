@@ -242,7 +242,7 @@
             $('#concatDa').hide()
 
             //继续添加
-            if (localStorage.getItem('name') != '') {
+            if (localStorage.getItem('name') != null) {
                 let p = JSON.parse(localStorage.getItem('name'));
                 $('#names').val(p[0].title);
                 $('#jias').val(p[0].artist)
@@ -489,7 +489,7 @@
         function kanfun(index) {
             $.ajax({
                 type: "get",
-                url: "https://81.68.107.245/api/songs/" + index,
+                url: "http://81.68.107.245/api/songs/" + index,
                 dataType: "json",
                 success: function (data) {
                     if (data.code == '200') {
