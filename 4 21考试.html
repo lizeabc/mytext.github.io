@@ -242,7 +242,7 @@
             $('#concatDa').hide()
 
             //继续添加
-            if (localStorage.getItem('name') != '') {
+            if (localStorage.getItem('name') != null) {
                 let p = JSON.parse(localStorage.getItem('name'));
                 $('#names').val(p[0].title);
                 $('#jias').val(p[0].artist)
