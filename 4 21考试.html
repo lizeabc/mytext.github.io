@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./layui-v2.6.8/layui/css/layui.css">
+    <script src="./jquery-3.6.1.js"></script>
+    <script src="./layui-v2.6.8/layui/layui.js"></script>
+</head>
+<style>
+    li {
+        display: inline-block;
+    }
+
+    #toupDiv {
+        width: 340px;
+        margin-left: 660px;
+    }
+
+    #topUl {
+        padding-top: 10px;
+    }
+
+    #touimgbox {
+        display: inline-block;
+        position: absolute;
+        left: 1130px;
+        top: 1px;
+    }
+
+    #toupA {
+        display: inline-block;
+        margin-right: 40px;
+    }
+
+    #topName {
+        position: absolute;
+        left: 57px;
+    }
+
+    #topSele {
+        width: 100px;
+        background-color: white;
+        border: 1px solid rgb(57, 61, 73);
+        text-align: center;
+        position: absolute;
+        left: 1290px;
+        top: 23px;
+    }
+
+    .coloaaa {
+        background-color: white;
+    }
+
+    .colob {
+        background-color: rgb(43, 43, 43);
+    }
+
+    #concat_addBtn {
+        position: absolute;
+        left: 450px;
+        top: 10px;
+    }
+
+    #concatDa {
+        width: 100%;
+        height: 100%;
+        background-color: #e2e2e280;
+        position: absolute;
+        z-index: 1;
+    }
+
+    #concatDiv {
+        width: 340px;
+        height: 450px;
+        background-color: white;
+        margin: auto;
+        position: relative;
+        top: 100px;
+    }
+
+    #concaH {
+        margin-left: 100px;
+    }
+
+    #concatDiv div {
+        display: inline-block;
+        margin-left: -10px;
+
+    }
+
+    #concatDiv input {
+        width: 240px;
+    }
+
+    #addBtn {
+        margin-left: 100px;
+    }
+
+    #plshan {
+        position: absolute;
+        left: 300px;
+        top: 10px;
+    }
+
+    #topSoiu {
+        position: absolute;
+        top: 10px;
+    }
+</style>
+
+<body>
+    <div id="top">
+        <ul class="layui-nav" lay-bar="disabled" id="topUl">
+            <div id="touimgbox">
+                <li class="layui-nav-item" lay-unselect="">
+                    <span id="topName">喜羊羊</span>
+                    <a href="javascript:;" id="toupA"><img id="toupimgs"
+                            src="https://dogefs.s3.ladydaily.com/~/source/wallhaven/small/l8/l83o92.jpg?w=400&h=200&fmt=webp"
+                            class="layui-nav-img"></a>
+                    <dl class="layui-nav-child">
+                        <dd style="text-align: center;"><a href="#">退出</a></dd>
+                    </dl>
+            </div>
+
+            <li>
+                <div class="layui-form-item" id="toupDiv">
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入标题"
+                            autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+            </li>
+            <li>
+                <select name="" id="topSele">
+                    <option value="白色">白色</option>
+                    <option value="黑色">黑色</option>
+                </select>
+            </li>
+            <li>
+                <button class="layui-btn" id="topSoiu">搜索</button>
+            </li>
+            </li>
+            <li><button class="layui-btn layui-btn-primary layui-border-green" id="concat_addBtn">添加歌曲</button></li>
+            <li><button class="layui-btn layui-btn-primary layui-border-red" id="plshan">批量删除</button></li>
+    </div>
+    <div id="concatDa">
+        <div id="concatDiv">
+            <h1 id="concaH">添加歌曲</h1>
+            <div class="layui-form-item">
+                <label class="layui-form-label">歌曲名称</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="names" required lay-verify="required" placeholder="请输入歌曲姓名"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">艺术家</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="jias" required lay-verify="required" placeholder="请输入艺术家"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">专辑名称</label>
+                <div class="layui-input-block">
+                    <input type="text" id="miongs" name="title" required lay-verify="required" placeholder="请输入专辑名称"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">年代</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" id="datas" required lay-verify="required" placeholder=""
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">类型</label>
+                <div class="layui-input-block">
+                    <input type="text" id="leis" name="title" required lay-verify="required" placeholder="请输入类型"
+                        autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <button id="addBtn" class="layui-btn layui-btn-primary layui-border-blue">添加</button>
+            <button id="qx" class="layui-btn layui-btn-primary layui-border-blue">取消</button>
+        </div>
+    </div>
+    <div id="concat">
+        <table class="layui-table" id="concattable">
+            <colgroup>
+                <col width="150">
+                <col width="200">
+                <col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <th>id</th>
+                    <th>歌曲名称</th>
+                    <th>艺术家</th>
+                    <th>专辑名称</th>
+                    <th>年代</th>
+                    <th>类型</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="concattbo">
+
+            </tbody>
+        </table>
+        <button id="shang">上一页</button>
+        <span>现在是第<span id="yaa"></span>页一共有<span id="xy"></span>页</span>
+        <button id="xiaBtn">下一页</button>
+    </div>
+    <script>
+        layui.use('element', function () {
+
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+            //监听导航点击
+            element.on('nav(demo)', function (elem) {
+                //console.log(elem)
+                layer.msg(elem.text());
+            });
+        });
+        var a = 'colob'
+        var b = 'coloaaa'
+        let pages = 1
+        let ypages = 0
+        $(document).ready(function () {
+            let se = localStorage.getItem('sele')
+            $('#topSele').val(se)
+            let arr = localStorage.getItem('color')
+            $('body').addClass(arr)
+            $('#concatDa').hide()
+
+            //继续添加
+            let p = JSON.parse(localStorage.getItem('name'));
+            $('#names').val(p[0].title);
+            $('#jias').val(p[0].artist)
+            $('#miongs').val(p[0].album)
+            $('#datas').val(p[0].year)
+            $('#leis').val(p[0].genre)
+            xrfun()
+        })
+        //批量删除
+        $('#plshan').click(function () {
+            let x = $('.xiaos')
+            $(x).each((index, item) => {
+                if (item.checked == true) {
+                    let ins = $(item).prop('title');
+                    shanFun(ins)
+                }
+            })
+        })
+        //下一页
+        $('#xiaBtn').click(function () {
+            if (pages < ypages) {
+                pages++
+            } else {
+                alert('到头了')
+            }
+            xrfun()
+        })
+        $('#shang').click(function () {
+            if (pages > 1) {
+                pages--
+            } else {
+                alert('到头了')
+            }
+            xrfun()
+        })
+        //切换背景色
+        $('#topSele').change(function () {
+            let val = $('#topSele').val()
+            if (val == '黑色') {
+                localStorage.removeItem('color')
+                localStorage.removeItem('sele')
+                localStorage.setItem('color', a)
+                localStorage.setItem('sele', '黑色')
+                let arr = localStorage.getItem('color')
+                $('body').removeClass(b)
+                $('body').addClass(arr)
+            } else if (val == '白色') {
+                localStorage.removeItem('color')
+                localStorage.removeItem('sele')
+                localStorage.setItem('color', b)
+                localStorage.setItem('sele', '白色')
+                let arr1 = localStorage.getItem('color')
+                $('body').removeClass(a)
+                $('body').addClass(arr1)
+            }
+        })
+        //获取列表
+        function xrfun() {
+            $.ajax({
+                type: "get",
+                url: "http://81.68.107.245/api/songs",
+                data: {
+                    page: pages,
+                    pageSize: 10
+                },
+                dataType: "json",
+                success: function (data) {
+                    fun(data.data)
+                    //总页数
+                    ypages = Math.ceil(data.count / data.pageSize)
+                    //现在多少页
+                    $('#yaa').html(pages)
+                    //一共多少页
+                    $('#xy').html(ypages)
+                }
+            });
+
+        }
+        //渲染列表
+        function fun(data) {
+            let html = ''
+            $(data).each((index, item) => {
+                html += `
+                <tr>
+                <td><input type='checkbox' class='xiaos' title='${item.id}'></td>
+                <td>${item.id}</td>
+                <td>${item.title}</td>    
+                <td>${item.artist}</td>    
+                <td>${item.album}</td>    
+                <td>${item.year}</td>    
+                <td>${item.genre}</td>    
+                <td><button class="layui-btn" onclick='kanfun(${item.id})'>查看</button ><button class="layui-btn" onclick='gaiFun(${item.id})'>修改</button><button class="layui-btn" onclick='shanFun(${item.id})')>删除</button></td>    
+                </tr>
+                `
+            })
+            $('#concattbo').html(html)
+        }
+        //修改回迁
+        let i = 0
+        function gaiFun(index) {
+            $.ajax({
+                type: "get",
+                url: "http://81.68.107.245/api/songs/" + index,
+                dataType: "json",
+                success: function (data) {
+                    $('#addBtn').css('display', 'block')
+                    $('#qx').css('margin-left', '210px')
+                    $('#qx').css('margin-top', '-55px')
+                    $('#concaH').html('修改歌曲')
+                    $('#qx').html('取消修改')
+                    i = index
+                    $('#addBtn').html('确认修改')
+                    $('#names').val(data.data.title);
+                    $('#jias').val(data.data.artist)
+                    $('#miongs').val(data.data.album)
+                    $('#datas').val(data.data.year)
+                    $('#leis').val(data.data.genre)
+                    $('#concatDa').fadeIn()
+                    let a = [{
+                        title: $('#names').val(),
+                        artist: $('#jias').val(),
+                        album: $('#miongs').val(),
+                        year: $('#datas').val(),
+                        genre: $('#leis').val()
+                    }]
+                    localStorage.setItem('data', JSON.stringify(a));
+                }
+            });
+        }
+        //删除
+        function shanFun(index) {
+            if (confirm('确认删除吗')) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "http://81.68.107.245/api/songs/" + index,
+                    dataType: "json",
+                    success: function (data) {
+                        xrfun()
+                    }
+                });
+            }
+
+        }
+        //添加歌曲按钮
+        $('#concat_addBtn').click(function () {
+            $('#addBtn').html('添加')
+            $('#concaH').html('添加歌曲')
+            $('#qx').html('取消')
+            $('#concatDa input').removeClass("readOnly", "readOnly")
+            $('#addBtn').css('display', 'block ')
+            $('#qx').css('margin-left', '210px')
+            $('#qx').css('margin-top', '-55px')
+
+            $('#concatDa').fadeIn()
+        })
+        //取消
+        $('#qx').click(function () {
+            if ($('#qx').html() == '取消') {
+                let res = [{
+                    title: $('#names').val(),
+                    artist: $('#jias').val(),
+                    album: $('#miongs').val(),
+                    year: $('#datas').val(),
+                    genre: $('#leis').val()
+                }]
+                localStorage.setItem('name', JSON.stringify(res))
+            } else if ($('#qx').html() == '取消修改' || $('#qx').html() == '取消查看') {
+                qkfun()
+            }
+
+            $('#concatDa').fadeOut()
+        })
+        //添加
+        $('#addBtn').click(function () {
+            if ($('#addBtn').html() == '添加') {
+                let data = {
+                    title: $('#names').val(),
+                    artist: $('#jias').val(),
+                    album: $('#miongs').val(),
+                    year: $('#datas').val(),
+                    genre: $('#leis').val()
+                }
+                $.ajax({
+                    url: "http://81.68.107.245/api/songs",
+                    method: "POST",
+                    data: JSON.stringify(data),
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    success: function (data) {
+                        if (data.code == '201') {
+                            xrfun()
+                            $('#concatDa').hide()
+                        }
+                    }
+                });
+            } else if ($('#addBtn').html() == '确认修改') {
+                let da = JSON.parse(localStorage.getItem('data'))
+                let res = {
+                    title: $('#names').val(),
+                    artist: $('#jias').val(),
+                    album: $('#miongs').val(),
+                    year: $('#datas').val(),
+                    genre: $('#leis').val()
+                }
+                if (da[0].title != res.title || da[0].artist != res.artist || da[0].album != res.album || da[0].year != res.year || da[0].genre != res.genre) {
+                    $.ajax({
+                        url: "http://81.68.107.245/api/songs/" + i,
+                        method: "PUT",
+                        data: JSON.stringify(res),
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        success: function (res) {
+                            if (res.code == '200') {
+                                qkfun()
+                                xrfun()
+                                $('#concatDa').hide()
+                            } else {
+                                alert(data.msg)
+                            }
+
+                        }
+                    });
+                } else {
+                    alert('数据没变不进行数据请求')
+                    $('#concatDa').hide()
+                }
+
+
+            }
+
+        })
+        //封装清空
+        function qkfun() {
+            $('#names').val('')
+            $('#jias').val('')
+            $('#miongs').val('')
+            $('#datas').val('')
+            $('#leis').val('')
+        }
+        //查看
+        function kanfun(index) {
+            $.ajax({
+                type: "get",
+                url: "http://81.68.107.245/api/songs/" + index,
+                dataType: "json",
+                success: function (data) {
+                    if (data.code == '200') {
+                        $('#concaH').html('查看歌曲')
+                        $('#qx').html('取消查看')
+                        $('#names').val(data.data.title);
+                        $('#jias').val(data.data.artist)
+                        $('#miongs').val(data.data.album)
+                        $('#datas').val(data.data.year)
+                        $('#leis').val(data.data.genre)
+                        $('#addBtn').css('display', 'none ')
+                        $('#qx').css('margin-left', '140px')
+                        $('#qx').css('margin-top', '10px')
+                        $('#concatDa').fadeIn()
+                    }
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
