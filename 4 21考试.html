@@ -242,12 +242,14 @@
             $('#concatDa').hide()
 
             //继续添加
-            let p = JSON.parse(localStorage.getItem('name'));
-            $('#names').val(p[0].title);
-            $('#jias').val(p[0].artist)
-            $('#miongs').val(p[0].album)
-            $('#datas').val(p[0].year)
-            $('#leis').val(p[0].genre)
+            if (localStorage.getItem('name') != '') {
+                let p = JSON.parse(localStorage.getItem('name'));
+                $('#names').val(p[0].title);
+                $('#jias').val(p[0].artist)
+                $('#miongs').val(p[0].album)
+                $('#datas').val(p[0].year)
+                $('#leis').val(p[0].genre)
+            }
             xrfun()
         })
         //批量删除
